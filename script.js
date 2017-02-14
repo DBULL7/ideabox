@@ -4,8 +4,8 @@ $('.save-button').on('click', function(){
   console.log("the save button is working!");
   var idea = new Card ($('.user-title').val(), $('.user-body').val());
   createCardHtml(idea);
-  stringify(idea);
   addToCardArray(idea);
+  stringify(idea);
   clearInputs();
 })
 
@@ -36,7 +36,7 @@ function createCardHtml(cardData) {
   console.log("Here is the card id: " + cardData.id)
 }
 
-function stringify(ideaObj) {
+function stringify() {
   var stringifiedCardArray = JSON.stringify(cardArray);
   console.log("Make sure this thing is stringified: " + stringifiedCardArray);
   localStorage.setItem('uid', stringifiedCardArray);
@@ -46,9 +46,13 @@ function getData() {
   var ideaObject = localStorage.getItem('uid');
   var unstringify = JSON.parse(ideaObject)
   console.log("The retrieved data is " + unstringify);
-  for (var i = 0; i < cardArray.length; i++){
-    createCardHtml(unstringify);
-  }
+  // for (var i = 0; i < unstringify.length; i++){
+  //   createCardHtml(unstringify);
+  // }
+  unstringify.forEach(function (card) {
+    console.log(card);
+    createCardHtml(card);
+  });
 
 }
 
