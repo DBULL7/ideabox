@@ -45,7 +45,6 @@ section {
 .search-box {
   margin-top: 15px;
 }
-
 span p {
   display: inline-block;
 }
@@ -63,4 +62,34 @@ h2 {
 
 span .delete-button {
   margin-left: 35%;
+}
+
+.button {
+  height: 30px;
+  width: 30px;
+  border: none;
+}
+
+.delete-button {
+  background: url(assets/delete.svg);
+}
+
+.delete-button:hover {
+  background: url(assets/delete-hover.svg);
+}
+
+.upvote-button {
+  background: url(assets/upvote.svg);
+}
+
+.upvote-button:hover {
+  background: url(assets/upvote-hover.svg);
+}
+
+.downvote-button {
+  background: url(assets/downvote.svg);
+}
+
+.downvote-button:hover {
+  background: url(assets/downvote-hover.svg);
 }
