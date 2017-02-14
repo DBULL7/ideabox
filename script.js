@@ -46,13 +46,12 @@ function getData() {
   var ideaObject = localStorage.getItem('uid');
   var unstringify = JSON.parse(ideaObject)
   console.log("The retrieved data is " + unstringify);
-  // for (var i = 0; i < unstringify.length; i++){
-  //   createCardHtml(unstringify);
-  // }
   unstringify.forEach(function (card) {
     console.log(card);
     createCardHtml(card);
+    addToCardArray(card);
   });
+
 
 }
 
