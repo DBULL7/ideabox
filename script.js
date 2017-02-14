@@ -23,7 +23,7 @@ function createCardHtml(cardData) {
     `<article class="idea-card" id="${cardData.id}">
       <span>
         <h2 contenteditable="true">${cardData.title}</h2>
-        <button type="button" class="button delete-button"></button>
+        <button type="button" class="button delete-button"><img src="assets/delete.svg"></button>
       </span>
       <p contenteditable="true">${cardData.body}</p>
       <button type="button" class="button upvote-button"></button>
