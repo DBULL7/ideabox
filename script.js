@@ -19,10 +19,10 @@ function createCardHtml(cardData) {
   $('.idea-list').prepend(
     `<article class="idea-card" id="${cardData.id}">
       <span>
-        <h2>${cardData.title}</h2>
+        <h2 contenteditable="true">${cardData.title}</h2>
         <button type="button" class="button delete-button"></button>
       </span>
-      <p>${cardData.body}</p>
+      <p contenteditable="true">${cardData.body}</p>
       <button type="button" class="button upvote-button"></button>
       <button type="button" class="button downvote-button"></button>
       <span>
