@@ -9,6 +9,8 @@ $('.save-button').on('click', function(){
   clearInputs();
 })
 
+$('.delete-button').on('click')
+
 getData();
 
 function Card (title, body) {
@@ -51,8 +53,6 @@ function getData() {
     createCardHtml(card);
     addToCardArray(card);
   });
-
-
 }
 
 function addToCardArray(newCard){
