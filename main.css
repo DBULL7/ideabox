@@ -45,3 +45,22 @@ section {
 .search-box {
   margin-top: 15px;
 }
+
+span p {
+  display: inline-block;
+}
+
+h2 {
+  display: inline-block;
+}
+
+.idea-card {
+  border-bottom-style: solid;
+  border-bottom-color: #D1D3D4;
+  border-bottom-width: 1px;
+  margin: 0 10px;
+}
+
+span .delete-button {
+  margin-left: 35%;
+}
