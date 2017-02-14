@@ -1,40 +1,43 @@
 $('.save-button').on('click', function(){
-  console.log("this click event is working");
-  generateIdea();
+  console.log("the save button is working!");
+  var idea = new Card ($('.user-title').val(), $('.user-body').val());
+  createCardHtml(idea);
+  stringify(idea);
+  clearInputs();
 })
 
-
-function generateIdea (){
-  var userTitle = $('.user-title');
-  var userBody = $('.user-body');
-  var cardArray = []
-  new Card(userTitle.value, userBody.value);
-  console.log("that's an unoriginal idea");
-  console.log(cardArray.title)
-}
-
-
-function Card (title, body, quality) {
-  // var userTitle = $('.user-title');
-  // var userBody = $('.user-body');
+function Card (title, body) {
   this.title = title;
   this.body = body;
-  $('.idea-list').prepend(this.createCardHtml());
+  this.quality = 'swill';
+  this.id = Date.now();
 }
 
-Card.prototype.createCardHtml = function(){
-  var userTitle = $('.user-title');
-  var userBody = $('.user-body');
-  return `<article class="idea-card">
+function createCardHtml(idea) {
+  $('.idea-list').prepend(
+    `<article class="idea-card" id="${idea.id}">
       <span>
-        <h2>${userTitle.val()}</h2>
+        <h2>${idea.title}</h2>
         <button type="button" class="button delete-button"></button>
       </span>
-      <p>${userBody.val()}</p>
+      <p>${idea.body}</p>
       <button type="button" class="button upvote-button"></button>
       <button type="button" class="button downvote-button"></button>
       <span>
-        <p>quality: swill </p>
+        <p>${idea.quality}</p>
       </span>
     </article>`
+  )
+  console.log("Here is the card id: " + idea.id)
+}
+
+function stringify(idea) {
+  var stringifiedCard = JSON.stringify(idea);
+  console.log("Make sure this thing is stringified: " + stringifiedCard);
+  localStorage.setItem(idea.id, stringifiedCard)
+}
+
+function clearInputs() {
+  $('.user-title').val("");
+  $('.user-body').val("");
 }
