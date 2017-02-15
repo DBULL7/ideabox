@@ -39,6 +39,10 @@ span {
   font-size: 1.5em;
 }
 
+.input-boxes:focus {
+  background-color: #FFFFE0;
+}
+
 section {
   margin: 0 auto;
 }
