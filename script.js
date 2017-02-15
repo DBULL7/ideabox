@@ -6,11 +6,11 @@ $('.save-button').on('click', function(){
   // addToCardArray(idea);
   stringify(idea);
   clearInputs();
-  console.log("Number of objects in local storage: " + localStorage.length)
+  console.log("Number of objects in local storage: " + localStorage.length);
   addSpaceInConsole();
-})
+});
 
-$('.delete-button').on('click')
+$('.delete-button').on('click');
 
 getData();
 
@@ -33,15 +33,15 @@ function createCardHtml(cardData) {
         <p>${cardData.quality}</p>
       </span>
     </article>`
-  )
-  console.log("Here is the card id: " + cardData.id)
+  );
+  console.log("Here is the card id: " + cardData.id);
 }
 
 $('.idea-list').on('click', '.delete-button', function() {
   $(this).parent().remove(); //Removes from DOM
   var parentCardId = $(this).parent().attr('id');
   localStorage.removeItem(parentCardId); //Removes from storage
-  console.log("terminated card id # : " + parentCardId)
+  console.log("terminated card id # : " + parentCardId);
   addSpaceInConsole();
   // console.log(id);
 });
@@ -56,10 +56,10 @@ function stringify(idea) {
 
 function getData() {
   for (var key in localStorage) {
-    var unstringify = JSON.parse(localStorage[key])
+    var unstringify = JSON.parse(localStorage[key]);
    console.log("Reloaded a precious object! title:" + unstringify.title);
    createCardHtml(unstringify);
-   addSpaceInConsole()
+   addSpaceInConsole();
     // var ideaObject = localStorage.getItem([key]);
     // var unstringify = JSON.parse(ideaObject)
     // console.log("The retrieved data is " + unstringify);
