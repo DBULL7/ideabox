@@ -1,12 +1,13 @@
-var cardArray = [];
+// var cardArray = [];
 
 $('.save-button').on('click', function(){
-  console.log("the save button is working!");
   var idea = new Card ($('.user-title').val(), $('.user-body').val());
   createCardHtml(idea);
-  addToCardArray(idea);
+  // addToCardArray(idea);
   stringify(idea);
   clearInputs();
+  console.log("Number of objects in local storage: " + localStorage.length)
+  addSpaceInConsole();
 })
 
 $('.delete-button').on('click')
@@ -23,10 +24,8 @@ function Card (title, body) {
 function createCardHtml(cardData) {
   $('.idea-list').prepend(
     `<article class="idea-card" id="${cardData.id}">
-      <span>
-        <h2 contenteditable="true">${cardData.title}</h2>
-        <button type="button" class="button delete-button"></button>
-      </span>
+      <h2 contenteditable="true">${cardData.title}</h2>
+      <button type="button" class="button delete-button"></button>
       <p contenteditable="true">${cardData.body}</p>
       <button type="button" class="button upvote-button"></button>
       <button type="button" class="button downvote-button"></button>
@@ -38,27 +37,47 @@ function createCardHtml(cardData) {
   console.log("Here is the card id: " + cardData.id)
 }
 
-function stringify() {
-  var stringifiedCardArray = JSON.stringify(cardArray);
-  console.log("Make sure this thing is stringified: " + stringifiedCardArray);
-  localStorage.setItem('uid', stringifiedCardArray);
+$('.idea-list').on('click', '.delete-button', function() {
+  $(this).parent().remove(); //Removes from DOM
+  var parentCardId = $(this).parent().attr('id');
+  localStorage.removeItem(parentCardId); //Removes from storage
+  console.log("terminated card id # : " + parentCardId)
+  addSpaceInConsole();
+  // console.log(id);
+});
+
+
+function stringify(idea) {
+  localStorage.setItem(idea.id, JSON.stringify(idea));
+  console.log('Stringified working!');
+  // localStorage.setItem('idea.id', stringifiedCardArray);
 }
+
 
 function getData() {
-  var ideaObject = localStorage.getItem('uid');
-  var unstringify = JSON.parse(ideaObject)
-  console.log("The retrieved data is " + unstringify);
-  unstringify.forEach(function (card) {
-    console.log(card);
-    createCardHtml(card);
-    addToCardArray(card);
-  });
+  for (var key in localStorage) {
+    var unstringify = JSON.parse(localStorage[key])
+   console.log("Reloaded a precious object! title:" + unstringify.title);
+   createCardHtml(unstringify);
+   addSpaceInConsole()
+    // var ideaObject = localStorage.getItem([key]);
+    // var unstringify = JSON.parse(ideaObject)
+    // console.log("The retrieved data is " + unstringify);
+    // unstringify.forEach(function (card) {
+    //   console.log(card);
+    // createCardHtml(unstringify);
+    // addToCardArray(unstringify);
+  }
 }
 
-function addToCardArray(newCard){
-  cardArray.push(newCard);
-  console.log(cardArray);
+function addSpaceInConsole() {
+  console.log("");
 }
+
+// function addToCardArray(newCard){
+//   cardArray.push(newCard);
+//   console.log(cardArray);
+// }
 
 function clearInputs() {
   $('.user-title').val("");
