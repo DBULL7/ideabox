@@ -24,7 +24,7 @@ function Card (title, body) {
 function createCardHtml(cardData) {
   $('.idea-list').prepend(
     `<article class="idea-card" id="${cardData.id}">
-      <h2 contenteditable="true">${cardData.title}</h2>
+      <h2 class="h2title" contenteditable="true">${cardData.title}</h2>
       <button type="button" class="button delete-button"></button>
       <p contenteditable="true">${cardData.body}</p>
       <button type="button" class="button upvote-button"></button>
@@ -69,6 +69,31 @@ function getData() {
     // addToCardArray(unstringify);
   }
 }
+
+
+$('.idea-list').on('focus', '.user-title', '.user-body', function() {
+    var grabCard = $(this).closest('.idea-card');
+    var key = grabCard.attr('id');
+    var getIdea = JSON.parse(localStorage.getItem(key));
+    $(this).on('keyup', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault()
+        $(this).blur()
+        return false
+      }
+    })
+    $(this).on('blur', function() {
+      getIdea.title = grabCard.find('.user-title').text();
+      getIdea.body = grabCard.find('.user-body').text();
+      localStorage.setItem(key, JSON.stringify(getIdea));
+    })
+
+
+})
+
+
+
+
 
 function addSpaceInConsole() {
   console.log("");
