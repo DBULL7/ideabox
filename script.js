@@ -16,7 +16,7 @@ $('.save-button').on('click', function(){
   createCardHtml(idea);
   stringify(idea);
   clearInputs();
-  disableSaveBtn()
+  disableSaveBtn();
   console.log("Number of objects in local storage: " + localStorage.length);
   addSpaceInConsole();
 });
@@ -95,19 +95,19 @@ $('.idea-list').on('focus', '.title-text, .body-text', function() {
     var getIdea = JSON.parse(localStorage.getItem(key));
     $(this).on('keyup', function(event) {
       if (event.keyCode === 13) {
-         event.preventDefault()
-        $(this).blur()
-        return false
+         event.preventDefault();
+        $(this).blur();
+        return false;
       }
-    })
+    });
 
     $(this).on('blur', function() {
       getIdea.title = grabCard.find('.title-text').text();
       getIdea.body = grabCard.find('.body-text').text();
       localStorage.setItem(key, JSON.stringify(getIdea));
-      console.log(getIdea)
-    })
-})
+      console.log(getIdea);
+    });
+});
 
 
 
@@ -129,11 +129,11 @@ $('.idea-list').on('click', '.upvote-button', function(){
         $(quality).text("quality: genius");
         break;
       default:
-       'quality: swill'
+       $(quality).text('quality: genius');
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
-})
+});
 
 
 //Downvote button event listener
@@ -150,11 +150,12 @@ $('.idea-list').on('click', '.downvote-button', function(){
         $(quality).text("quality: swill");
         break;
       default:
-       'quality: swill'
+        $(quality).text('quality: swill');
+
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
-})
+});
 
 
 
@@ -170,8 +171,8 @@ $('.search-box').on('keyup', function(){
     var cardText = $(card).text().toLowerCase();
     var textMatch = cardText.indexOf(search) !== -1;
     $(card).toggle(textMatch);
-  })
-})
+  });
+});
 
 
 
