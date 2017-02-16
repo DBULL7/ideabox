@@ -69,9 +69,6 @@ section {
 .search-box {
   margin-top: 15px;
 }
-span p {
-  display: inline-block;
-}
 
 h2 {
   display: inline-block;
@@ -88,9 +85,12 @@ h2 {
   padding: 10px 5px;
 }
 
+
+
 .idea-card p {
   line-height: 1.5;
 }
+
 
 .button {
   height: 30px;
@@ -146,6 +146,6 @@ h2 {
 
   .idea-card {
     padding: 10px 0;
-    margin: 0 70px; 
+    margin: 0 70px;
   }
 }

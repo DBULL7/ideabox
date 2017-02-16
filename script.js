@@ -78,14 +78,14 @@ $('.idea-list').on('click', '.upvote-button', function(){
   var parseIdea = JSON.parse(localStorage.getItem(key));
   // console.log(quality.text());
     switch (quality.text()){
-      case 'swill':
-        $(quality).text("plausable");
+      case 'quality: swill':
+        $(quality).text("quality: plausable");
         break;
-      case 'plausable':
-        $(quality).text("genius");
+      case 'quality: plausable':
+        $(quality).text("quality: genius");
         break;
       default:
-       'swill'
+       'quality: swill'
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
@@ -98,14 +98,14 @@ $('.idea-list').on('click', '.downvote-button', function(){
   var parseIdea = JSON.parse(localStorage.getItem(key));
   // console.log(quality.text());
     switch (quality.text()){
-      case 'genius':
-        $(quality).text("plausable");
+      case 'quality: genius':
+        $(quality).text("quality: plausable");
         break;
-      case 'plausable':
-        $(quality).text("swill");
+      case 'quality: plausable':
+        $(quality).text("quality: swill");
         break;
       default:
-       'swill'
+       'quality: swill'
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
@@ -115,6 +115,22 @@ $('.idea-list').on('click', '.downvote-button', function(){
 function addSpaceInConsole() {
   console.log("");
 }
+
+$('.search-box').on('keyup', function(){
+  //get value of searchbox
+  var search = $(this).val().toLowerCase();
+  var cards = $('.idea-card');
+
+
+  cards.each(function(i, card){
+    var cardText = $(card).text().toLowerCase();
+    var textMatch = cardText.indexOf(search) !== -1;
+    $(card).toggle(textMatch);
+    console.log(textMatch);
+  })
+})
+
+
 
 function clearInputs() {
   $('.user-title').val("");
