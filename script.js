@@ -1,16 +1,11 @@
-// var cardArray = [];
-
 $('.save-button').on('click', function(){
   var idea = new Card ($('.user-title').val(), $('.user-body').val());
   createCardHtml(idea);
-  // addToCardArray(idea);
   stringify(idea);
   clearInputs();
   console.log("Number of objects in local storage: " + localStorage.length);
   addSpaceInConsole();
 });
-
-$('.delete-button').on('click');
 
 getData();
 
@@ -29,9 +24,7 @@ function createCardHtml(cardData) {
       <p class="body-text" contenteditable="true">${cardData.body}</p>
       <button type="button" class="button upvote-button"></button>
       <button type="button" class="button downvote-button"></button>
-      <span>
-        <p>${cardData.quality}</p>
-      </span>
+      <p class="card-quality">${cardData.quality}</p>
     </article>`
   );
   console.log("Here is the card id: " + cardData.id);
@@ -43,16 +36,12 @@ $('.idea-list').on('click', '.delete-button', function() {
   localStorage.removeItem(parentCardId); //Removes from storage
   console.log("terminated card id # : " + parentCardId);
   addSpaceInConsole();
-  // console.log(id);
 });
-
 
 function stringify(idea) {
   localStorage.setItem(idea.id, JSON.stringify(idea));
   console.log('Stringified working!');
-  // localStorage.setItem('idea.id', stringifiedCardArray);
 }
-
 
 function getData() {
   for (var key in localStorage) {
@@ -60,16 +49,8 @@ function getData() {
    console.log("Reloaded a precious object! title:" + unstringify.title);
    createCardHtml(unstringify);
    addSpaceInConsole();
-    // var ideaObject = localStorage.getItem([key]);
-    // var unstringify = JSON.parse(ideaObject)
-    // console.log("The retrieved data is " + unstringify);
-    // unstringify.forEach(function (card) {
-    //   console.log(card);
-    // createCardHtml(unstringify);
-    // addToCardArray(unstringify);
   }
 }
-
 
 $('.idea-list').on('focus', '.title-text, .body-text', function() {
     var grabCard = $(this).closest('.idea-card');
@@ -81,8 +62,8 @@ $('.idea-list').on('focus', '.title-text, .body-text', function() {
         $(this).blur()
         return false
       }
-
     })
+
     $(this).on('blur', function() {
       getIdea.title = grabCard.find('.title-text').text();
       getIdea.body = grabCard.find('.body-text').text();
@@ -91,18 +72,49 @@ $('.idea-list').on('focus', '.title-text, .body-text', function() {
     })
 })
 
+$('.idea-list').on('click', '.upvote-button', function(){
+  var quality = $(this).siblings('.card-quality');
+  var key = $(this).closest('.idea-card').attr('id');
+  var parseIdea = JSON.parse(localStorage.getItem(key));
+  // console.log(quality.text());
+    switch (quality.text()){
+      case 'swill':
+        $(quality).text("plausable");
+        break;
+      case 'plausable':
+        $(quality).text("genius");
+        break;
+      default:
+       'swill'
+  }
+  parseIdea.quality = quality.text();
+  localStorage.setItem(key, JSON.stringify(parseIdea));
+  // console.log(getQuality)
+})
 
-
-
+$('.idea-list').on('click', '.downvote-button', function(){
+  var quality = $(this).siblings('.card-quality');
+  var key = $(this).closest('.idea-card').attr('id');
+  var parseIdea = JSON.parse(localStorage.getItem(key));
+  // console.log(quality.text());
+    switch (quality.text()){
+      case 'genius':
+        $(quality).text("plausable");
+        break;
+      case 'plausable':
+        $(quality).text("swill");
+        break;
+      default:
+       'swill'
+  }
+  parseIdea.quality = quality.text();
+  localStorage.setItem(key, JSON.stringify(parseIdea));
+  // console.log(getQuality)
+})
 
 function addSpaceInConsole() {
   console.log("");
 }
-
-// function addToCardArray(newCard){
-//   cardArray.push(newCard);
-//   console.log(cardArray);
-// }
 
 function clearInputs() {
   $('.user-title').val("");
