@@ -16,6 +16,7 @@ $('.save-button').on('click', function(){
   createCardHtml(idea);
   stringify(idea);
   clearInputs();
+  disableSaveBtn()
   console.log("Number of objects in local storage: " + localStorage.length);
   addSpaceInConsole();
 });
