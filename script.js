@@ -12,7 +12,7 @@ getData();
 function Card (title, body) {
   this.title = title;
   this.body = body;
-  this.quality = 'quality: swill';
+  this.quality = 'swill';
   this.id = Date.now();
 }
 
@@ -115,6 +115,20 @@ $('.idea-list').on('click', '.downvote-button', function(){
 function addSpaceInConsole() {
   console.log("");
 }
+
+$('.search-box').on('keyup', function(){
+  //get value of searchbox
+  var search = $(this).val().toLowerCase();
+  var cards = $('.idea-card');
+
+
+  cards.each(function(i, card){
+    var cardText = $(card).text().toLowerCase();
+    var textMatch = cardText.indexOf(search) !== -1;
+    $(card).toggle(textMatch);
+    console.log(textMatch);
+  })
+})
 
 
 
