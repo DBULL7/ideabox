@@ -116,6 +116,8 @@ function addSpaceInConsole() {
   console.log("");
 }
 
+
+
 function clearInputs() {
   $('.user-title').val("");
   $('.user-body').val("");
