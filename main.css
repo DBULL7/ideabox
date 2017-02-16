@@ -1,4 +1,5 @@
 html, body {
+  font-family: "Open Sans", sans-serif;
 }
 
 header {
@@ -11,6 +12,10 @@ h1 {
   color: #6D6E71;
   margin-top: 0;
   padding-top: 20px;
+}
+
+h1, h2 {
+  font-family: "Roboto Slab", serif;
 }
 
 span {
@@ -27,24 +32,38 @@ span {
   color: #FFFFFF;
   display: block;
   margin: 0 auto 15px auto;
+  width: 91%;
 }
 
 .save-button:hover {
   background: #045E55;
 }
 
+input {
+  width: 90%;
+}
+
 .input-boxes {
   margin-bottom: 15px;
-  width: 90%;
+
   font-size: 1.5em;
 }
 
-.input-boxes:focus {
+input:focus {
   background-color: #FFFFE0;
 }
 
+.search {
+  text-align: center;
+}
+
+
 section {
-  margin: 0 auto;
+  margin: 0 2px;
+}
+
+.idea-text {
+  color: #939598;
 }
 
 .search-box {
@@ -53,19 +72,25 @@ section {
 
 h2 {
   display: inline-block;
+  overflow:
   margin: 10px 0;
+  color: #6D6E71;
 }
 
 .idea-card {
   border-bottom-style: solid;
   border-bottom-color: #D1D3D4;
-  border-bottom-width: 1px;
-  margin: 0 10px;
+  border-bottom-width: 2px;
+  margin: 0 15px;
+  padding: 10px 5px;
 }
 
-/*.idea-card p {
-  margin: 16px 0;
-}*/
+
+
+.idea-card p {
+  line-height: 1.5;
+}
+
 
 .button {
   height: 30px;
@@ -74,9 +99,10 @@ h2 {
 }
 
 .delete-button {
-  margin-left: 47%;
+  float: right;
+  /*margin-right: 10px;*/
   background: url(assets/delete.svg);
-  margin-top: 10px;
+  margin-top: 18px;
   outline: none;
 }
 
@@ -94,6 +120,7 @@ h2 {
 }
 
 .downvote-button {
+  margin-left: 5px;
   background: url(assets/downvote.svg);
   outline: none;
 }
@@ -103,7 +130,22 @@ h2 {
 }
 
 .card-quality {
+  margin-left: 10px;
   display: inline-block;
   vertical-align: super;
-  margin-left: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  input {
+    width: 79%;
+  }
+
+  .save-button {
+    width: 80%;
+  }
+
+  .idea-card {
+    padding: 10px 0;
+    margin: 0 70px;
+  }
 }
