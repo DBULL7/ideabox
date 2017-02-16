@@ -50,9 +50,6 @@ section {
 .search-box {
   margin-top: 15px;
 }
-span p {
-  display: inline-block;
-}
 
 h2 {
   display: inline-block;
@@ -66,9 +63,9 @@ h2 {
   margin: 0 10px;
 }
 
-.idea-card p {
+/*.idea-card p {
   margin: 16px 0;
-}
+}*/
 
 .button {
   height: 30px;
@@ -103,4 +100,10 @@ h2 {
 
 .downvote-button:hover {
   background: url(assets/downvote-hover.svg);
+}
+
+.card-quality {
+  display: inline-block;
+  vertical-align: super;
+  margin-left: 10px;
 }

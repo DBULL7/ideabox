@@ -12,7 +12,7 @@ getData();
 function Card (title, body) {
   this.title = title;
   this.body = body;
-  this.quality = 'swill';
+  this.quality = 'quality: swill';
   this.id = Date.now();
 }
 
@@ -78,14 +78,14 @@ $('.idea-list').on('click', '.upvote-button', function(){
   var parseIdea = JSON.parse(localStorage.getItem(key));
   // console.log(quality.text());
     switch (quality.text()){
-      case 'swill':
-        $(quality).text("plausable");
+      case 'quality: swill':
+        $(quality).text("quality: plausable");
         break;
-      case 'plausable':
-        $(quality).text("genius");
+      case 'quality: plausable':
+        $(quality).text("quality: genius");
         break;
       default:
-       'swill'
+       'quality: swill'
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
@@ -98,14 +98,14 @@ $('.idea-list').on('click', '.downvote-button', function(){
   var parseIdea = JSON.parse(localStorage.getItem(key));
   // console.log(quality.text());
     switch (quality.text()){
-      case 'genius':
-        $(quality).text("plausable");
+      case 'quality: genius':
+        $(quality).text("quality: plausable");
         break;
-      case 'plausable':
-        $(quality).text("swill");
+      case 'quality: plausable':
+        $(quality).text("quality: swill");
         break;
       default:
-       'swill'
+       'quality: swill'
   }
   parseIdea.quality = quality.text();
   localStorage.setItem(key, JSON.stringify(parseIdea));
