@@ -37,11 +37,16 @@ span {
   height: 35px;
 }
 
+.save-button:disabled {
+  background: #939598;
+}
+
 .save-button:hover {
   background: #045E55;
 }
 
 input {
+  word-break: normal;
   width: 90%;
 }
 
@@ -76,7 +81,6 @@ input:focus {
 
 h2 {
   display: inline-block;
-  overflow:
   margin: 10px 0;
   color: #6D6E71;
 }
