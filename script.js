@@ -123,9 +123,9 @@ $('.idea-list').on('click', '.upvote-button', function(){
   // console.log(quality.text());
     switch (quality.text()){
       case 'quality: swill':
-        $(quality).text("quality: plausable");
+        $(quality).text("quality: plausible");
         break;
-      case 'quality: plausable':
+      case 'quality: plausible':
         $(quality).text("quality: genius");
         break;
       default:
@@ -144,9 +144,9 @@ $('.idea-list').on('click', '.downvote-button', function(){
   // console.log(quality.text());
     switch (quality.text()){
       case 'quality: genius':
-        $(quality).text("quality: plausable");
+        $(quality).text("quality: plausible");
         break;
-      case 'quality: plausable':
+      case 'quality: plausible':
         $(quality).text("quality: swill");
         break;
       default:
