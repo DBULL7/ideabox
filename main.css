@@ -1,5 +1,6 @@
 html, body {
   font-family: "Open Sans", sans-serif;
+  margin: 0;
 }
 
 header {
@@ -33,6 +34,7 @@ span {
   display: block;
   margin: 0 auto 15px auto;
   width: 91%;
+  height: 35px;
 }
 
 .save-button:hover {
@@ -45,8 +47,9 @@ input {
 
 .input-boxes {
   margin-bottom: 15px;
-
-  font-size: 1.5em;
+  font-size: 1.3em;
+  border-width: 1px;
+  padding-left: 5px;
 }
 
 input:focus {
@@ -55,20 +58,21 @@ input:focus {
 
 .search {
   text-align: center;
+  margin-top: 23px;
 }
 
 
-section {
-  margin: 0 2px;
-}
+/*section {
+  margin: 8px 2px 0 2px;
+}*/
 
 .idea-text {
   color: #939598;
 }
 
-.search-box {
+/*.search-box {
   margin-top: 15px;
-}
+}*/
 
 h2 {
   display: inline-block;
@@ -81,7 +85,7 @@ h2 {
   border-bottom-style: solid;
   border-bottom-color: #D1D3D4;
   border-bottom-width: 2px;
-  margin: 0 15px;
+  margin: 0 3%;
   padding: 10px 5px;
 }
 
@@ -136,6 +140,10 @@ h2 {
 }
 
 @media screen and (min-width: 600px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
   input {
     width: 79%;
   }
@@ -148,4 +156,40 @@ h2 {
     padding: 10px 0;
     margin: 0 70px;
   }
+}
+
+@media screen and (min-width: 720px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .user-body {
+    padding-bottom: 40px
+  }
+
+  .idea-card {
+    margin: 0 10%;
+}
+
+@media screen and (min-width: 900px) {
+  h1 {
+    font-size: 2.6em;
+  }
+
+  input {
+    width: 55%;
+  }
+
+  .save-button {
+    width: 55.5%;
+  }
+
+  .user-body {
+    padding-bottom: 0;
+  }
+
+  .idea-card {
+    margin: 0 22%;
+  }
+
 }
