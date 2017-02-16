@@ -46,7 +46,6 @@ span {
 }
 
 input {
-  word-break: normal;
   width: 90%;
 }
 
@@ -66,18 +65,9 @@ input:focus {
   margin-top: 23px;
 }
 
-
-/*section {
-  margin: 8px 2px 0 2px;
-}*/
-
 .idea-text {
   color: #939598;
 }
-
-/*.search-box {
-  margin-top: 15px;
-}*/
 
 h2 {
   display: inline-block;
@@ -93,12 +83,9 @@ h2 {
   padding: 10px 5px;
 }
 
-
-
 .idea-card p {
   line-height: 1.5;
 }
-
 
 .button {
   height: 30px;
@@ -108,7 +95,6 @@ h2 {
 
 .delete-button {
   float: right;
-  /*margin-right: 10px;*/
   background: url(assets/delete.svg);
   margin-top: 18px;
   outline: none;
